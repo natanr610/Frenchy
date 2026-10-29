@@ -4,8 +4,10 @@ A personal French learning app. It's plain HTML/CSS/JavaScript with no build ste
 
 ## Run it
 
-Open `index.html` in a browser. To use it on your phone, enable **GitHub Pages**
-(Settings → Pages → deploy from branch) and open the URL it gives you.
+**Live app: https://natanr610.github.io/Frenchy/**
+
+It's hosted with GitHub Pages (Settings → Pages → Deploy from a branch). On your phone, open the link
+and use "Add to Home Screen" so it works like an app. You can also open `index.html` directly in a browser.
 
 Your progress is saved in your browser's local storage.
 
