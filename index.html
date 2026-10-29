@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1f3a8a">
+  <title>Frenchy</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1>🇫🇷 Frenchy</h1>
+    <div class="stats-mini">
+      <span title="Day streak">🔥 <b id="streak">0</b></span>
+      <span title="Experience points">⭐ <b id="xp">0</b></span>
+    </div>
+  </header>
+
+  <nav class="tabs" role="tablist">
+    <button data-view="home" class="active">Home</button>
+    <button data-view="cards">Flashcards</button>
+    <button data-view="quiz">Quiz</button>
+    <button data-view="verbs">Verbs</button>
+    <button data-view="phrases">Phrases</button>
+  </nav>
+
+  <main>
+    <!-- HOME -->
+    <section id="view-home" class="view active">
+      <div class="card hero">
+        <h2>Bonjour ! 👋</h2>
+        <p id="home-summary"></p>
+        <button class="btn primary" data-goto="cards">Start today's review</button>
+      </div>
+      <div class="grid">
+        <div class="card stat"><div class="num" id="stat-learned">0</div><div>words learned</div></div>
+        <div class="card stat"><div class="num" id="stat-due">0</div><div>due today</div></div>
+        <div class="card stat"><div class="num" id="stat-quiz">–</div><div>best quiz score</div></div>
+        <div class="card stat"><div class="num" id="stat-verbs">0</div><div>verb forms correct</div></div>
+      </div>
+      <div class="card">
+        <h3>Daily goal</h3>
+        <div class="progress"><div id="goal-bar"></div></div>
+        <p class="muted"><span id="goal-text"></span></p>
+      </div>
+      <div class="card settings">
+        <h3>Settings</h3>
+        <label>New words per day
+          <select id="set-new">
+            <option>5</option><option selected>10</option><option>15</option><option>20</option>
+          </select>
+        </label>
+        <label>Daily XP goal
+          <select id="set-goal">
+            <option>20</option><option selected>50</option><option>100</option>
+          </select>
+        </label>
+        <button class="btn danger small" id="reset">Reset all progress</button>
+      </div>
+    </section>
+
+    <!-- FLASHCARDS -->
+    <section id="view-cards" class="view">
+      <div class="toolbar">
+        <label>Category <select id="cards-cat"></select></label>
+        <span class="muted" id="cards-remaining"></span>
+      </div>
+      <div id="flash-area"></div>
+    </section>
+
+    <!-- QUIZ -->
+    <section id="view-quiz" class="view">
+      <div class="toolbar">
+        <label>Category <select id="quiz-cat"></select></label>
+        <label>Direction
+          <select id="quiz-dir">
+            <option value="fr-en">French → English</option>
+            <option value="en-fr">English → French</option>
+            <option value="type">Type the French</option>
+          </select>
+        </label>
+        <button class="btn primary small" id="quiz-start">New quiz</button>
+      </div>
+      <div id="quiz-area"></div>
+    </section>
+
+    <!-- VERBS -->
+    <section id="view-verbs" class="view">
+      <div class="toolbar">
+        <label>Verb <select id="verb-pick"></select></label>
+        <button class="btn small" id="verb-table-btn">Show table</button>
+      </div>
+      <div id="verb-area"></div>
+      <div id="verb-table" class="card hidden"></div>
+    </section>
+
+    <!-- PHRASES -->
+    <section id="view-phrases" class="view">
+      <div class="toolbar">
+        <label><input type="checkbox" id="hide-en"> Hide English (tap to reveal)</label>
+      </div>
+      <div id="phrase-list"></div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast"></div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
