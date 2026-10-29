@@ -18,9 +18,10 @@
 
   <nav class="tabs" role="tablist">
     <button data-view="home" class="active">Home</button>
-    <button data-view="cards">Flashcards</button>
+    <button data-view="talk">Talk</button>
+    <button data-view="cards">Cards</button>
+    <button data-view="verbs">Tenses</button>
     <button data-view="quiz">Quiz</button>
-    <button data-view="verbs">Verbs</button>
     <button data-view="phrases">Phrases</button>
   </nav>
 
@@ -30,13 +31,17 @@
       <div class="card hero">
         <h2>Bonjour ! 👋</h2>
         <p id="home-summary"></p>
-        <button class="btn primary" data-goto="cards">Start today's review</button>
+        <div class="hero-actions">
+          <button class="btn primary" data-goto="cards">Review flashcards</button>
+          <button class="btn" data-goto="talk">Practise small talk</button>
+        </div>
       </div>
       <div class="grid">
         <div class="card stat"><div class="num" id="stat-learned">0</div><div>words learned</div></div>
         <div class="card stat"><div class="num" id="stat-due">0</div><div>due today</div></div>
         <div class="card stat"><div class="num" id="stat-quiz">–</div><div>best quiz score</div></div>
         <div class="card stat"><div class="num" id="stat-verbs">0</div><div>verb forms correct</div></div>
+        <div class="card stat"><div class="num" id="stat-talks">0</div><div>conversations done</div></div>
       </div>
       <div class="card">
         <h3>Daily goal</h3>
@@ -45,7 +50,7 @@
       </div>
       <div class="card settings">
         <h3>Settings</h3>
-        <label>New words per day
+        <label>New cards per day
           <select id="set-new">
             <option>5</option><option selected>10</option><option>15</option><option>20</option>
           </select>
@@ -84,12 +89,23 @@
       <div id="quiz-area"></div>
     </section>
 
-    <!-- VERBS -->
+    <!-- SMALL TALK -->
+    <section id="view-talk" class="view">
+      <div class="toolbar">
+        <label>Conversation <select id="talk-pick"></select></label>
+      </div>
+      <p class="muted small-note">Read (or listen to) what they say, then pick the most natural reply. Tap the blurred English if you need help.</p>
+      <div id="talk-area"></div>
+    </section>
+
+    <!-- VERBS & TENSES -->
     <section id="view-verbs" class="view">
       <div class="toolbar">
+        <label>Tense <select id="tense-pick"></select></label>
         <label>Verb <select id="verb-pick"></select></label>
         <button class="btn small" id="verb-table-btn">Show table</button>
       </div>
+      <div id="tense-info" class="card tense-info"></div>
       <div id="verb-area"></div>
       <div id="verb-table" class="card hidden"></div>
     </section>
@@ -97,7 +113,8 @@
     <!-- PHRASES -->
     <section id="view-phrases" class="view">
       <div class="toolbar">
-        <label><input type="checkbox" id="hide-en"> Hide English (tap to reveal)</label>
+        <label>Topic <select id="phrase-topic"></select></label>
+        <label><input type="checkbox" id="hide-en"> Hide English</label>
       </div>
       <div id="phrase-list"></div>
     </section>
